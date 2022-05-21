@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Clients>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<li class="nav-item">
+ <i class="bi bi-person-plus-fill"></i>
+    <a  asp-controller="Clients" asp-action="Create">Add New</a>
+</li>
+
+
+
+<h1>Index</h1>
+<table class="table table-bordered table-striped table-hover" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Contect No
+            </th>
+            <th>
+
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>
+                    @data.Clients_Id
+                </td>
+                <td>
+                    @data.Name
+                </td>
+                <td>
+                    @data.Address
+                </td>
+                <td>
+                    @data.Contact_No
+                </td>
+                <td>
+                    <a asp-controller="Clients" asp-action="UpdateClients" asp-route-id="@data.Clients_Id">
+                        <i class="bg-info bi-pencil-square"></i>Update
+                    </a> &nbsp;&nbsp; 
+                    | &nbsp;&nbsp;
+                    <a asp-controller="Clients" asp-action="DeleteClients" asp-route-id="@data.Clients_Id">
+                        <i class="bg-info bi-pencil-square"></i>Remove
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
